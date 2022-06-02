@@ -1,10 +1,12 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import Constants from 'expo-constants'
 import theme from '../styles/theme'
+import AppBarTab from './AppBarTab'
 
 const styles = StyleSheet.create({
   bar: {
     backgroundColor: theme.colors.primary,
-    padding: 16
+    paddingTop: Constants.statusBarHeight
   },
   text: {
     color: 'white',
@@ -13,10 +15,10 @@ const styles = StyleSheet.create({
   }
 })
 
-const Heading = () => (
+const AppBar = () => (
   <View style={styles.bar}>
-    <Text style={styles.text}>Rate Repository Application</Text>
+    <AppBarTab label='Repositories' />
   </View>
 )
 
-export default Heading
+export default AppBar
