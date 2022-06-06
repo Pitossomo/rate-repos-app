@@ -1,6 +1,8 @@
 import { StyleSheet, View } from 'react-native'
 import AppBar from './AppBar'
+import SignIn from './SignIn'
 import RepositoryList from './RepositoryList'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 const styles = StyleSheet.create({
   container: {
@@ -9,11 +11,16 @@ const styles = StyleSheet.create({
   },
 })
 
+const Stack = createNativeStackNavigator()
+const screenOptions = { header: AppBar }
+
 const Main = () => {
   return (
     <View style={styles.container}>
-      <AppBar />
-      <RepositoryList />
+      <Stack.Navigator screenOptions={screenOptions}>
+        <Stack.Screen name="Repositories" component={RepositoryList} />
+        <Stack.Screen name="SignIn" component={SignIn} />
+      </Stack.Navigator>
     </View>
   )
 }

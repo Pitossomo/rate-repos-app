@@ -10,9 +10,9 @@ const styles = StyleSheet.create({
   }
 })
 
-const AppBarTab = ({ label }) => {
+const AppBarTab = ({ label, onPress }) => {
   return (
-    <Pressable>
+    <Pressable onPress={onPress}>
       <Text style={styles.tab}>{label}</Text>
     </Pressable>
   )

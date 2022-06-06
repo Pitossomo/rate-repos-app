@@ -6,7 +6,8 @@ import AppBarTab from './AppBarTab'
 const styles = StyleSheet.create({
   bar: {
     backgroundColor: theme.colors.primary,
-    paddingTop: Constants.statusBarHeight
+    paddingTop: Constants.statusBarHeight,
+    flexDirection: 'row'
   },
   text: {
     color: 'white',
@@ -15,9 +16,11 @@ const styles = StyleSheet.create({
   }
 })
 
-const AppBar = () => (
+
+const AppBar = ({ navigation }) => (
   <View style={styles.bar}>
-    <AppBarTab label='Repositories' />
+    <AppBarTab label='Repositories' onPress={() => navigation.navigate('Repositories')} />
+    <AppBarTab label='SignIn' onPress={() => navigation.navigate('SignIn')} />
   </View>
 )
 
